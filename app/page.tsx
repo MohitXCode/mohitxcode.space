@@ -13,7 +13,7 @@ const stagger = {
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center px-4 relative overflow-hidden">
+    <main className="flex-1 flex flex-col items-center justify-center px-4 relative overflow-hidden pt-16">
       {/* Subtle grid background */}
       <div 
         className="absolute inset-0 opacity-[0.03]"
@@ -41,7 +41,9 @@ export default function HomePage() {
         {/* Name */}
         <motion.h1 
           variants={fadeUp}
-className="font-bold tracking-tight text-text-primary mb-6" style={{ fontSize: '4.5rem', lineHeight: '1.05', letterSpacing: '-0.04em' }}        >
+          className="font-bold tracking-tight text-text-primary mb-6" 
+          style={{ fontSize: '4.5rem', lineHeight: '1.05', letterSpacing: '-0.04em' }}
+        >
           MohitXCode
         </motion.h1>
 
