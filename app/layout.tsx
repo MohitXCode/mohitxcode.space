@@ -3,6 +3,7 @@ import { geist, geistMono } from '@/lib/fonts'
 import Navbar from '@/components/layout/navbar'
 import Footer from '@/components/layout/footer'
 import CommandPalette from '@/components/layout/command-palette'
+import ScrollProgress from '@/components/layout/scroll-progress'
 import '@/styles/globals.css'
 
 export const metadata: Metadata = {
@@ -37,6 +38,7 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-bg-base text-text-primary font-sans min-h-screen flex flex-col">
+        <ScrollProgress />
         <Navbar />
         <CommandPalette />
         <main className="flex-1">

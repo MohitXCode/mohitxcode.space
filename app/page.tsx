@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import TextRotator from '@/components/home/text-rotator'
 
 const fadeUp = {
   hidden: { opacity: 0, y: 16 },
@@ -50,10 +51,15 @@ export default function HomePage() {
         {/* Tagline */}
         <motion.p 
           variants={fadeUp}
-          className="text-body-lg text-text-secondary mb-12 max-w-lg mx-auto"
+          className="text-body-lg text-text-secondary mb-4 max-w-lg mx-auto"
         >
           Developer in public — learning, building, shipping, documenting
         </motion.p>
+
+        {/* Animated text rotator */}
+        <motion.div variants={fadeUp} className="mb-12">
+          <TextRotator />
+        </motion.div>
 
         {/* CTAs */}
         <motion.div 
