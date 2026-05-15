@@ -4,11 +4,32 @@ import Navbar from '@/components/layout/navbar'
 import Footer from '@/components/layout/footer'
 import CommandPalette from '@/components/layout/command-palette'
 import ScrollProgress from '@/components/layout/scroll-progress'
+import { siteConfig } from '@/config/site'
 import '@/styles/globals.css'
 
 export const metadata: Metadata = {
-  title: 'MohitXCode',
-  description: 'Developer building in public — projects, blogs, experiments',
+  title: {
+    default: siteConfig.name,
+    template: `%s · ${siteConfig.name}`,
+  },
+  description: siteConfig.description,
+  keywords: ['developer', 'portfolio', 'next.js', 'open source', 'learning'],
+  authors: [{ name: siteConfig.name }],
+  creator: siteConfig.creator,
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: siteConfig.url,
+    siteName: siteConfig.name,
+  },
+  twitter: {
+    card: 'summary_large_image',
+    creator: siteConfig.creator,
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 }
 
 export default function RootLayout({

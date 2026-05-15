@@ -11,6 +11,7 @@ const navLinks = [
   { href: '/blog', label: 'Blog' },
   { href: '/labs', label: 'Labs' },
   { href: '/uses', label: 'Uses' },
+  { href: '/now', label: 'Now' },
 ]
 
 export default function Navbar() {
@@ -38,6 +39,10 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [lastScrollY])
 
+  const openCommandPalette = () => {
+    window.dispatchEvent(new KeyboardEvent('keydown', { key: 'k', metaKey: true }))
+  }
+
   return (
     <>
       <motion.header
@@ -51,12 +56,10 @@ export default function Navbar() {
         }`}
       >
         <nav className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-center relative">
-          {/* Logo - absolute left */}
           <a href="/" className="absolute left-4 font-bold text-body text-text-primary hover:text-text-accent transition-colors">
             MohitXCode
           </a>
 
-          {/* Desktop nav - centered */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <a
@@ -70,7 +73,6 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* Right actions - absolute right */}
           <div className="absolute right-4 hidden md:flex items-center gap-3 pl-4">
             <a 
               href="/dashboard" 
@@ -80,8 +82,8 @@ export default function Navbar() {
             </a>
             
             <button 
+              onClick={openCommandPalette}
               className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-md bg-accent-muted text-caption text-text-secondary hover:bg-accent-hover transition-colors"
-              onClick={() => {/* TODO: open command palette */}}
             >
               <Command className="w-3.5 h-3.5" />
               <span>⌘K</span>
@@ -90,7 +92,6 @@ export default function Navbar() {
             <ThemeToggle />
           </div>
 
-          {/* Mobile toggle */}
           <button 
             className="md:hidden absolute right-4 p-2 text-text-secondary hover:text-text-primary"
             onClick={() => setMobileOpen(!mobileOpen)}
@@ -101,7 +102,6 @@ export default function Navbar() {
         </nav>
       </motion.header>
 
-      {/* Mobile drawer */}
       <AnimatePresence>
         {mobileOpen && (
           <>
